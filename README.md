@@ -1,3 +1,11 @@
+E2B Typescript SDK currently only support NodeJS runtimes.
+
+We use it in macaly, where we stream output from sandbox to frontend continually.
+
+With standard nodejs runtime, you usually pay per second of compute. 
+
+With edge runtime, you pay just by CPU time which will be much cheaper! 🎉
+
 This is a proof of concept of using E2B SDK in edge runtime (Cloudflare in this case).
 
 This uses my fork of @e2b/code-interpreter, which uses fork of e2b, which uses fork of connect-web :D with this simple change: https://github.com/rychlis/connect-es/pull/1/files
