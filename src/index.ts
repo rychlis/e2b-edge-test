@@ -20,9 +20,24 @@ export default {
 		globalThis.process = {env: env}
 		const sandbox = await Sandbox.create("next-empty",
 			{
-				timeoutMs: 1000,
+				timeoutMs: 60_000,
 			}
 		)
-		return new Response('Sandbox created: ' + sandbox.sandboxId);
+		let stdout = ""
+		let stderr = ""
+		const result = await sandbox.commands.run("df -h", {
+			timeoutMs: 10_000,
+			background: true,
+			onStdout: (data) => {
+				console.log("stdout", data)
+				stdout += data
+			},
+			onStderr: (data) => {
+				console.log("stderr", data)
+				stderr += data
+			},
+		})
+		await result.wait()
+		return new Response('Sandbox created: ' + sandbox.sandboxId + '\nstdout:' + stdout + '\stderr:' + stderr);
 	},
 } satisfies ExportedHandler<Env>;
