@@ -1,6 +1,6 @@
 E2B Typescript SDK currently only support NodeJS runtimes. See https://e2b.dev/docs/troubleshooting/sdks/workers-edge-runtime
 
-We use it in macaly, where we stream output from sandbox to frontend continually.
+We use it in [macaly](macaly.com), where we stream output from sandbox to frontend continually.
 
 With standard nodejs runtime, you usually pay per second of compute. 
 
