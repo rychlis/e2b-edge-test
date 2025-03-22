@@ -12,3 +12,6 @@ This uses my fork of @e2b/code-interpreter, which uses fork of e2b, which uses f
 
 
 Main file here: https://github.com/rychlis/e2b-edge-test/blob/main/src/index.ts
+
+
+This PoC works with creating sandbox and running command inside. In e2b, same could be achieved with pnpm patch
