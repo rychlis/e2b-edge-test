@@ -15,12 +15,10 @@ import { Sandbox } from "@e2b/code-interpreter"
 
 export default {
 	async fetch(request, env, ctx): Promise<Response> {
-		console.log(env.E2B_API_KEY)
-		// @ts-ignore - hack to make e2b work
-		globalThis.process = {env: env}
 		const sandbox = await Sandbox.create("next-empty",
 			{
 				timeoutMs: 60_000,
+				apiKey: env.E2B_API_KEY,
 			}
 		)
 		let stdout = ""
